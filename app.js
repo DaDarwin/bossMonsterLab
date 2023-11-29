@@ -91,6 +91,7 @@ function checkVictory(){
     let bats = people.filter(person => person.picture == '🦇')
     if(bats.length == people.length){
         window.alert('Victory!')
+        window.close()
     }
 }
 
