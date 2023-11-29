@@ -71,4 +71,27 @@ function drawTown(){
         document.getElementById(location).innerText = groupPics.join(' ')
     })
 }
+
+function batAttack(local){
+    group = people.filter(person => person.location == local)
+    group.forEach(person => person.picture = '🦇')
+    
+    checkVictory()
+    movement()
+
+}
+
+function movement(){
+    group = people.filter(person => person.picture != '🦇')
+    group.forEach(person => person.location = locations[Math.floor(Math.random() * locations.length)])
+    drawTown()
+}
+
+function checkVictory(){
+    let bats = people.filter(person => person.picture == '🦇')
+    if(bats.length == people.length){
+        window.alert('Victory!')
+    }
+}
+
 drawTown()
